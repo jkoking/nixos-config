@@ -8,7 +8,7 @@
     inputs.home-manager.nixosModules.default
 
   ];
-keyboard.qmk.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
