@@ -5,17 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:jkoking/nixos-hardware/add-framework-16";
 
-
-     home-manager = {
-       url = "github:nix-community/home-manager";
-       inputs.nixpkgs.follows = "nixpkgs";
-     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     nixosConfigurations.framework-16 = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/framework-16/configuration.nix
         ./modules/nixos/kde.nix

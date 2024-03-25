@@ -17,15 +17,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.nordic
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
+  home.packages =
+    [ pkgs.nordic (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-  };
+  home.file = { };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
@@ -42,9 +39,7 @@
   #
   #  /etc/profiles/per-user/jacob/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "code";
-  };
+  home.sessionVariables = { EDITOR = "code"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -53,5 +48,5 @@
   programs.git = {
     userName = "Jacob Osborne";
     userEmail = "jacobosborne757@gmail.com";
-};
+  };
 }

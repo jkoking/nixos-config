@@ -1,12 +1,11 @@
-{pkgs, ...}:
-{
-    # Enable the KDE Plasma Desktop Environment.
+{ pkgs, ... }: {
+  # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm = {
     enable = true;
     theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
   };
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   # kde connect
   programs.kdeconnect.enable = true;
 
@@ -20,5 +19,5 @@
     kmines
     knights
     qtstyleplugin-kvantum
-];
+  ];
 }

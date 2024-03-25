@@ -2,13 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{pkgs, inputs,... }:
-{
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      
+{ pkgs, inputs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+
   ];
 
   # Bootloader.
@@ -19,17 +17,17 @@
 
   # Enable experimentel features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-# Select internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -44,7 +42,7 @@
   };
 
   # enable fwupd
-    services.fwupd.enable = true;
+  services.fwupd.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -52,7 +50,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm = {
     enable = true;
-     theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
+    theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
   };
 
   # Configure keymap in X11
@@ -64,12 +62,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {
-  enable = true;
-  nssmdns = true;
-  openFirewall = true;
-};
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
   services.printing.drivers = [ pkgs.hplipWithPlugin ];
-
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -94,45 +91,46 @@
   hardware.opengl.driSupport32Bit = true;
 
   # Setup Virt-manager
-virtualisation.libvirtd = {
-  enable = true;
-  qemu = {
-    package = pkgs.qemu_kvm;
-    runAsRoot = true;
-    swtpm.enable = true;
-    ovmf = {
-      enable = true;
-      packages = [(pkgs.OVMF.override {
-        secureBoot = true;
-        tpmSupport = true;
-      }).fd];
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
     };
   };
-};
-boot.extraModprobeConfig = "options kvm_amd nested=1";
-
+  boot.extraModprobeConfig = "options kvm_amd nested=1";
 
   # Allow unfree package
   nixpkgs.config.allowUnfree = true;
 
   # Setup Steam
   programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-};
-
- 
+    enable = true;
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+  };
 
   # Setup Flatpak
   services.flatpak.enable = true;
 
   # Setup git
   programs.git = {
-  enable = true;
-  package = pkgs.gitFull;
-  config.credential.helper = "libsecret";
-};
+    enable = true;
+    package = pkgs.gitFull;
+    config.credential.helper = "libsecret";
+  };
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
@@ -157,26 +155,20 @@ boot.extraModprobeConfig = "options kvm_amd nested=1";
     vscode
     wget
     wineWowPackages.staging
-    ];
-    
-
+  ];
 
   # Eaable home manger 
   home-manager = {
-    extraSpecialArgs = {inherit inputs; };
-    users = {
-      "jacob" = import ./home.nix;
-    };
+    extraSpecialArgs = { inherit inputs; };
+    users = { "jacob" = import ./home.nix; };
   };
-  
-  
+
   # setup shells
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish bash ];
 
-
-   # Limit journal size
+  # Limit journal size
   services.journald.extraConfig = ''
     SystemMaxUse=50M
   '';
@@ -184,9 +176,9 @@ boot.extraModprobeConfig = "options kvm_amd nested=1";
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
- programs.gnupg.agent = {
-  enable = true;
-  enableSSHSupport = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # List services that you want to enable:
