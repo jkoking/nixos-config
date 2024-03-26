@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs.kdePackages; [
     akregator
     dragon
-    kamoso
+    # kamoso
     kdenlive
     kdeplasma-addons
     kmines
