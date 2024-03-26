@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:jkoking/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:jkoking/nixpkgs/nixos-unstable-small";
     nixos-hardware.url = "github:jkoking/nixos-hardware/add-framework-16";
 
     home-manager = {
