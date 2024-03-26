@@ -40,13 +40,13 @@
       "locked": {
         "lastModified": 1711437523,
         "narHash": "sha256-lzKaFdlecRjS580jFQfY0TeOQknROUfhUJKpVdXEQGY=",
-        "owner": "jkoking",
+        "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "034253ed29c57858b532c2dffb205aa31651b819",
         "type": "github"
       },
       "original": {
-        "owner": "jkoking",
+        "owner": "NixOS",
         "ref": "nixos-unstable-small",
         "repo": "nixpkgs",
         "type": "github"
