@@ -148,7 +148,7 @@
     pkgs.retroarch
     qpwgraph
     scrcpy
-    # space-cadet-pinball
+    space-cadet-pinball
     spotify
     tree
     virt-manager
