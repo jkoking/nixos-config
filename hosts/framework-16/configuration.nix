@@ -149,6 +149,7 @@
     nix-tree
     onlyoffice-bin
     papirus-icon-theme
+    prismlauncher
     qpwgraph
     retroarch
     scrcpy
