@@ -149,6 +149,7 @@
     nix-tree
     nordic.sddm
     onlyoffice-bin
+    obs-studio
     qpwgraph
     retroarch
     scrcpy
