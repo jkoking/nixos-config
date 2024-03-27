@@ -143,7 +143,6 @@
     minetest
     nil
     nix-tree
-    nordic.sddm
     onlyoffice-bin
     pkgs.retroarch
     qpwgraph
