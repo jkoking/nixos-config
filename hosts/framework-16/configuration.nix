@@ -144,7 +144,7 @@
     nil
     nix-tree
     onlyoffice-bin
-    papirus
+    papirus-icon-theme
     qpwgraph
     retroarch
     scrcpy
