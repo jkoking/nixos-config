@@ -148,6 +148,7 @@
     nil
     nix-tree
     onlyoffice-bin
+    obs-studio
     papirus-icon-theme
     prismlauncher
     qpwgraph
