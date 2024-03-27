@@ -140,6 +140,7 @@
     chromium
     direnv
     discord
+    fastfetch
     minetest
     nil
     nix-tree
