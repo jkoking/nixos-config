@@ -144,8 +144,8 @@
     nil
     nix-tree
     onlyoffice-bin
-    pkgs.retroarch
     qpwgraph
+    retroarch
     scrcpy
     # space-cadet-pinball
     spotify
