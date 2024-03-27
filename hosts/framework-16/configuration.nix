@@ -145,6 +145,7 @@
     gimp
     freecad
     minetest
+    makemkv
     nil
     nix-tree
     onlyoffice-bin
