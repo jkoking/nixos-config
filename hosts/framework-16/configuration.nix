@@ -142,6 +142,8 @@
     discord
     fastfetch
     floorp
+    gimp
+    freecad
     minetest
     nil
     nix-tree
