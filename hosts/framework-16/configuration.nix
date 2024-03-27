@@ -141,6 +141,7 @@
     direnv
     discord
     fastfetch
+    floorp
     minetest
     nil
     nix-tree
