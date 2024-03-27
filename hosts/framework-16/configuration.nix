@@ -147,8 +147,8 @@
     nix-tree
     nordic.sddm
     onlyoffice-bin
-    pkgs.retroarch
     qpwgraph
+    retroarch
     scrcpy
     space-cadet-pinball
     spotify
