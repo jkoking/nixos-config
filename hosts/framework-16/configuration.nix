@@ -144,6 +144,7 @@
     nil
     nix-tree
     onlyoffice-bin
+    papirus
     qpwgraph
     retroarch
     scrcpy
