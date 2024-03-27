@@ -18,6 +18,5 @@
     kdeplasma-addons
     kmines
     knights
-    qtstyleplugin-kvantum
   ];
 }
