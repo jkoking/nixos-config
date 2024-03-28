@@ -148,7 +148,6 @@ programs.steam.gamescopeSession.enable = true;
     floorp
     gimp
     freecad
-    heroic
     # handbrake
     minetest
     makemkv
