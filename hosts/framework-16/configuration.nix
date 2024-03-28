@@ -122,6 +122,10 @@
       true; # Open ports in the firewall for Source Dedicated Server
   };
 
+
+# Setup gamescope
+programs.steam.gamescopeSession.enable = true;
+
   # Setup Flatpak
   services.flatpak.enable = true;
 
