@@ -144,6 +144,7 @@
     floorp
     gimp
     freecad
+    heroic
     # handbrake
     minetest
     makemkv
