@@ -122,9 +122,8 @@
       true; # Open ports in the firewall for Source Dedicated Server
   };
 
-
-# Setup gamescope
-programs.steam.gamescopeSession.enable = true;
+  # Setup gamescope
+  programs.steam.gamescopeSession.enable = true;
 
   # Setup Flatpak
   services.flatpak.enable = true;
@@ -155,6 +154,13 @@ programs.steam.gamescopeSession.enable = true;
     nordic.sddm
     onlyoffice-bin
     obs-studio
+    (lutris.override {
+      extraPkgs = pkgs:
+        [
+          gnome3.adwaita-icon-theme
+        ];
+    })
+    prismlauncher
     qpwgraph
     retroarch
     scrcpy
