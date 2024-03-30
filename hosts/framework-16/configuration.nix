@@ -147,7 +147,7 @@
     floorp
     gimp
     freecad
-    # handbrake
+    handbrake
     minetest
     makemkv
     nil
