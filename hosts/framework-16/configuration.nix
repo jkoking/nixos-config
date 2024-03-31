@@ -24,13 +24,6 @@
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
-  # Run the GC weekly keeping the 5 most recent generation of each profiles.
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    delete_generations = "+5"; # Option added by nix-gc-env
-  };
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 
