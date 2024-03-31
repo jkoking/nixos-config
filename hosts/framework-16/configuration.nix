@@ -24,7 +24,7 @@
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
-  # Run the GC weekly keeping the 5 most recent generation of each profiles.
+  # Run the GC weekly
   nix.gc = {
     automatic = true;
     dates = "weekly";
