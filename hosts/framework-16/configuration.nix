@@ -24,12 +24,6 @@
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
-  # Run the GC weekly
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 
