@@ -28,7 +28,6 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    delete_generations = "+5"; # Option added by nix-gc-env
   };
 
   # Set your time zone.
