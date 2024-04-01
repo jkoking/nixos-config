@@ -141,6 +141,7 @@
     audacity
     chiaki
     chromium
+    easyeffects
     direnv
     discord
     fastfetch
