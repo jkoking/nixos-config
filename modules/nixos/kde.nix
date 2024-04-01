@@ -14,6 +14,7 @@
     akregator
     dragon
     kamoso
+    elisa
     kdenlive
     kdeplasma-addons
     kmines
