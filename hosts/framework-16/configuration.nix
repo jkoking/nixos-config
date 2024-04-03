@@ -147,7 +147,6 @@
     nix-tree
     nordic.sddm
     onlyoffice-bin
-    papirus
     qpwgraph
     retroarch
     scrcpy
