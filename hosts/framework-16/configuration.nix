@@ -155,12 +155,7 @@
     nordic.sddm
     onlyoffice-bin
     obs-studio
-    (lutris.override {
-      extraPkgs = pkgs:
-        [
-          gnome3.adwaita-icon-theme
-        ];
-    })
+    (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
     prismlauncher
     qpwgraph
     retroarch
