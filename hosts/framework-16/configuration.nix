@@ -160,6 +160,7 @@
     retroarch
     scrcpy
     space-cadet-pinball
+    speedtest-cli
     spotify
     tree
     virt-manager
