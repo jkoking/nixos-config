@@ -4,7 +4,7 @@
     enable = true;
     wayland.enable = true;
   };
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # kde connect
   programs.kdeconnect.enable = true;
