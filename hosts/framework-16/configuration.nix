@@ -153,6 +153,7 @@
     minetest
     makemkv
     nil
+    nixd
     nix-tree
     onlyoffice-bin
     obs-studio
