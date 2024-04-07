@@ -147,6 +147,7 @@
     fastfetch
     floorp
     gimp
+    godot_4
     freecad
     handbrake
     minetest
