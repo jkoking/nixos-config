@@ -15,6 +15,7 @@
     dragon
     elisa
     # kamoso
+    kcalc
     kdenlive
     kdeplasma-addons
     kmines
