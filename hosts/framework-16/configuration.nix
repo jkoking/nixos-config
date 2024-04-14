@@ -47,12 +47,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
-  };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
