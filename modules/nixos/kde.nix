@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
