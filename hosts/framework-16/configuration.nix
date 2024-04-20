@@ -132,6 +132,7 @@
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     _86Box
+    appimage-run
     audacity
     chiaki
     chromium
