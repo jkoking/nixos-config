@@ -20,6 +20,7 @@
   home.packages = [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     pkgs.papirus-icon-theme
+    pkgs.jetbrains.idea-community-bin
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
