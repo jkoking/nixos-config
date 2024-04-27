@@ -137,6 +137,7 @@
     chiaki
     chromium
     easyeffects
+    espeak
     direnv
     discord
     fastfetch
@@ -157,6 +158,7 @@
     retroarch
     scrcpy
     space-cadet-pinball
+  speechd
     speedtest-cli
     spotify
     tree
