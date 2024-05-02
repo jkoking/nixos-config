@@ -17,6 +17,7 @@
     # kamoso
     kcalc
     kdenlive
+    partitionmanager
     kdeplasma-addons
     kmines
     knights
