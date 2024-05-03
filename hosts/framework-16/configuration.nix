@@ -147,6 +147,7 @@ fileSystems = {
     audacity
     chiaki
     chromium
+    bleachbit
     easyeffects
     espeak
     direnv
