@@ -9,6 +9,17 @@
 
   ];
 
+  # mount drives
+fileSystems = {
+  "/" = {
+    device = "/dev/disk/by-uuid/259a81e0-e12a-485f-b6b0-3dbf4a1f5781";
+    };
+  "/boot" = {
+    device = "/dev/disk/by-uuid/C621-2AFF";
+  };
+  "/home/jacob/Games".label = "games";
+};
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
