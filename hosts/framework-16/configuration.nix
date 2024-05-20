@@ -165,6 +165,8 @@ fileSystems = {
     nix-tree
     onlyoffice-bin
     obs-studio
+    gamemode
+    protonvpn-gui
     (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
     qpwgraph
     retroarch
@@ -175,6 +177,7 @@ fileSystems = {
     spotify
     tree
     virt-manager
+    vulkan-tools
     vscode
     wget
     wineWowPackages.staging
@@ -222,7 +225,7 @@ fileSystems = {
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
+  # Enable the OpenSSH daemon.                                         
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
