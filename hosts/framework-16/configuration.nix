@@ -9,6 +9,17 @@
 
   ];
 
+  # mount drives
+fileSystems = {
+  "/" = {
+    device = "/dev/disk/by-uuid/259a81e0-e12a-485f-b6b0-3dbf4a1f5781";
+    };
+  "/boot" = {
+    device = "/dev/disk/by-uuid/C621-2AFF";
+  };
+  "/home/jacob/Games".label = "games";
+};
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -47,23 +58,17 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
-  };
-
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
   services.printing.drivers = [ pkgs.hplipWithPlugin ];
@@ -138,34 +143,51 @@
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     _86Box
+    appimage-run
     audacity
     chiaki
     chromium
+    bleachbit
     easyeffects
+    espeak
     direnv
     discord
     fastfetch
     floorp
     gimp
+    godot_4
     freecad
     handbrake
     minetest
+    makemkv
     nil
+    nixd
     nix-tree
-    nordic.sddm
     onlyoffice-bin
     obs-studio
+    gamemode
+    protonvpn-gui
     (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
     qpwgraph
     retroarch
     scrcpy
     space-cadet-pinball
+  speechd
+    speedtest-cli
     spotify
     tree
     virt-manager
+    vulkan-tools
     vscode
     wget
     wineWowPackages.staging
+  ];
+
+  # dynamic link home apps
+    programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
   ];
 
   # Eaable home manger 
@@ -176,8 +198,17 @@
 
   # setup shells
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish bash ];
+  users.defaultUserShell = pkgs.bash;
+  programs.bash = {
+  interactiveShellInit = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+  '';
+  };
 
   # Limit journal size
   services.journald.extraConfig = ''
@@ -194,7 +225,7 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
+  # Enable the OpenSSH daemon.                                         
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
