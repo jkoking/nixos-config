@@ -148,7 +148,6 @@
     fastfetch
     floorp
     freecad
-    gamemode
     gimp
     godot_4
     handbrake
@@ -176,6 +175,9 @@
     wine-staging
   ];
 
+  # enable gamemode
+  programs.gamemode.enable = true;
+  
   #setup nh
   programs.nh = {
     enable = true;
