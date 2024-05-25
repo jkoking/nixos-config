@@ -10,9 +10,7 @@
   ];
 
   # mount drives
-fileSystems = {
-  "/home/jacob/Games".label = "games";
-};
+  fileSystems = { "/home/jacob/Games".label = "games"; };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -140,46 +138,46 @@ fileSystems = {
     _86Box
     appimage-run
     audacity
+    bleachbit
     chiaki
     chromium
-    bleachbit
-    easyeffects
-    espeak
     direnv
     discord
+    easyeffects
+    espeak
     fastfetch
     floorp
+    freecad
+    gamemode
     gimp
     godot_4
-    freecad
     handbrake
-    minetest
-    makemkv
-    nil
-    nixd
-    nix-tree
-    onlyoffice-bin
-    obs-studio
-    gamemode
-    protonvpn-gui
     (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
+    makemkv
+    minetest
+    nil
+    nix-tree
+    nixd
+    obs-studio
+    onlyoffice-bin
+    protonvpn-gui
     qpwgraph
     retroarch
     scrcpy
     space-cadet-pinball
-  speechd
+    speechd
     speedtest-cli
     spotify
     tree
     virt-manager
-    vulkan-tools
     vscode
+    vulkan-tools
     wget
     wineWowPackages.staging
   ];
 
   #setup nh
-   programs.nh = {
+  programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
@@ -187,11 +185,12 @@ fileSystems = {
   };
 
   # dynamic link home apps
-    programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-  ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs;
+    [
+      # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
+    ];
 
   # Eaable home manger 
   home-manager = {
@@ -204,13 +203,13 @@ fileSystems = {
   environment.shells = with pkgs; [ fish bash ];
   users.defaultUserShell = pkgs.bash;
   programs.bash = {
-  interactiveShellInit = ''
-    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-    then
-      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-    fi
-  '';
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
   };
 
   # Limit journal size
