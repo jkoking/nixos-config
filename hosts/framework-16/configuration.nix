@@ -159,6 +159,7 @@
     nixd
     obs-studio
     onlyoffice-bin
+    protonup-qt
     protonvpn-gui
     qpwgraph
     retroarch
