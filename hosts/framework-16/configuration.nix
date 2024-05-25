@@ -173,7 +173,7 @@
     vscode
     vulkan-tools
     wget
-    wineWowPackages.staging
+    wine-staging
   ];
 
   #setup nh
