@@ -18,7 +18,8 @@ fileSystems = {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "jacob-framework-16"; # Define your hostname.
+  # Define your hostname.
+  networking.hostName = "framework-16";
 
   # Enable experimentel features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -176,6 +177,14 @@ fileSystems = {
     wget
     wineWowPackages.staging
   ];
+
+  #setup nh
+   programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/jacob/nix";
+  };
 
   # dynamic link home apps
     programs.nix-ld.enable = true;
