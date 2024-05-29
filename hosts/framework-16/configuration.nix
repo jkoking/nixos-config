@@ -141,6 +141,7 @@
     bleachbit
     chiaki
     chromium
+    devenv
     direnv
     discord
     easyeffects
