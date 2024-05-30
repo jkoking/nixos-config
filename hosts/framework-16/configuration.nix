@@ -159,6 +159,7 @@
     nix-tree
     nixd
     obs-studio
+    okteta
     onlyoffice-bin
     protontricks
     protontricks
