@@ -141,6 +141,7 @@
     bleachbit
     chiaki
     chromium
+    cool-retro-term
     devenv
     direnv
     discord
