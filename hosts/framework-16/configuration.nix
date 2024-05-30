@@ -160,6 +160,8 @@
     nixd
     obs-studio
     onlyoffice-bin
+    protontricks
+    protontricks
     protonup-qt
     protonvpn-gui
     qpwgraph
