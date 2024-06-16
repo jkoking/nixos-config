@@ -168,7 +168,6 @@
     protonup-qt
     protonvpn-gui
     qpwgraph
-    retroarch
     scrcpy
     space-cadet-pinball
     speechd
