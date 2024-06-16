@@ -141,6 +141,7 @@
     bleachbit
     chiaki
     chromium
+    corectrl
     cool-retro-term
     devenv
     direnv
