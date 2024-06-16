@@ -146,6 +146,7 @@
     devenv
     direnv
     discord
+    dolphin-emu
     easyeffects
     espeak
     fastfetch
@@ -156,6 +157,7 @@
     handbrake
     (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
     makemkv
+    mgba
     minetest
     nil
     nix-tree
@@ -168,6 +170,7 @@
     protonup-qt
     protonvpn-gui
     qpwgraph
+    ryujinx
     scrcpy
     space-cadet-pinball
     speechd
@@ -179,6 +182,8 @@
     vulkan-tools
     wget
     wine-staging
+    xemu
+    mel
   ];
 
   # enable gamemode
