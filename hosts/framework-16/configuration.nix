@@ -183,7 +183,6 @@
     wget
     wine-staging
     xemu
-    mel
   ];
 
   # enable gamemode
