@@ -9,6 +9,9 @@
 
   ];
 
+  # mamually select kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # mount drives
   fileSystems = { "/home/jacob/Games".label = "games"; };
 
@@ -169,6 +172,7 @@
     protontricks
     protonup-qt
     protonvpn-gui
+    python3
     qpwgraph
     ryujinx
     scrcpy
