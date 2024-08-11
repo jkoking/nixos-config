@@ -187,6 +187,7 @@
     wget
     wine-staging
     xemu
+    zed-editor
   ];
 
   # enable gamemode
