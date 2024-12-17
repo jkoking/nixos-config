@@ -70,7 +70,6 @@
   services.printing.drivers = [ pkgs.hplipWithPlugin ];
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -78,8 +77,14 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
   };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jacob = {
@@ -88,8 +93,15 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 
-  # Enable 32 bit libraris
-  hardware.opengl.driSupport32Bit = true;
+  # Setup display manager
+    services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
+  };
+
+  # Enable 32 bit libraries
+  hardware.graphics.enable32Bit = true;
 
   # Setup Virt-manager
   virtualisation.libvirtd = {
@@ -126,9 +138,6 @@
   # Setup gamescope
   programs.steam.gamescopeSession.enable = true;
 
-  # Setup Flatpak
-  services.flatpak.enable = true;
-
   # Setup git
   programs.git = {
     enable = true;
@@ -142,10 +151,11 @@
     appimage-run
     audacity
     bleachbit
+    bottles
     chiaki
     chromium
-    corectrl
     cool-retro-term
+    corectrl
     devenv
     direnv
     discord
@@ -155,22 +165,28 @@
     fastfetch
     floorp
     freecad
+    gearlever
     gimp
     godot_4
     handbrake
-    (lutris.override { extraPkgs = pkgs: [ gnome3.adwaita-icon-theme ]; })
+    jetbrains.idea-community-bin
+    (lutris.override { extraPkgs = pkgs: [ pkgs.adwaita-icon-theme ]; })
     makemkv
     mgba
     minetest
     nil
     nix-tree
     nixd
+    nordic
     obs-studio
     okteta
     onlyoffice-bin
+    prismlauncher
+    pokemmo-installer
+    papirus-icon-theme
+    piper-tts
+    protonplus
     protontricks
-    protontricks
-    protonup-qt
     protonvpn-gui
     python3
     qpwgraph
@@ -180,14 +196,15 @@
     speechd
     speedtest-cli
     spotify
+    starship
+    trashy
     tree
     virt-manager
-    vscode
+    vscodium
     vulkan-tools
     wget
     wine-staging
     xemu
-    zed-editor
   ];
 
   # enable gamemode
@@ -209,7 +226,7 @@
       # here, NOT in environment.systemPackages
     ];
 
-  # Eaable home manger 
+  # Enable home manger 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = { "jacob" = import ./home.nix; };
@@ -259,7 +276,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
 
