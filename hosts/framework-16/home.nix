@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -52,7 +57,35 @@
 
   # Setup git
   programs.git = {
+    enable = true;
     userName = "Jacob Osborne";
     userEmail = "jacobosborne757@gmail.com";
+  };
+  # Setup fish
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+  };
+
+  #Setup Starship
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      add_newline = false;
+      format = lib.concatStrings [
+        "$line_break"
+        "$package"
+        "$line_break"
+        "$character"
+      ];
+      scan_timeout = 10;
+      character = {
+        success_symbol = "➜";
+        error_symbol = "➜";
+      };
+    };
   };
 }

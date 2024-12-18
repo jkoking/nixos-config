@@ -6,8 +6,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-
   ];
 
   # mamually select kernel
@@ -176,6 +174,7 @@
     gimp
     godot_4
     handbrake
+    home-manager
     jetbrains.idea-community-bin
     (lutris.override { extraPkgs = pkgs: [ pkgs.adwaita-icon-theme ]; })
     makemkv
@@ -233,14 +232,6 @@
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
   ];
-
-  # Enable home manger
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "jacob" = import ./home.nix;
-    };
-  };
 
   # setup shells
   programs.fish.enable = true;
