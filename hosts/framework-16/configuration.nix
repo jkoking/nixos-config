@@ -150,6 +150,7 @@
     _86Box
     appimage-run
     audacity
+    bitwarden-desktop
     bleachbit
     bottles
     chiaki
@@ -165,7 +166,6 @@
     fastfetch
     floorp
     freecad
-    gearlever
     gimp
     godot_4
     handbrake
@@ -197,6 +197,7 @@
     speedtest-cli
     spotify
     starship
+    synology-drive-client
     trashy
     tree
     virt-manager
