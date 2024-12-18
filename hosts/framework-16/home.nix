@@ -43,7 +43,9 @@
   #
   #  /etc/profiles/per-user/jacob/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = { EDITOR = "code"; };
+  home.sessionVariables = {
+    EDITOR = "code";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

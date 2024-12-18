@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -13,7 +14,9 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # mount drives
-  fileSystems = { "/home/jacob/Games".label = "games"; };
+  fileSystems = {
+    "/home/jacob/Games".label = "games";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -23,7 +26,10 @@
   networking.hostName = "framework-16";
 
   # Enable experimentel features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -85,16 +91,19 @@
     #media-session.enable = true;
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jacob = {
     isNormalUser = true;
     description = "jacob";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
   };
 
   # Setup display manager
-    services.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     theme = "${pkgs.nordic.sddm}/share/sddm/themes/Nordic-bluish";
@@ -129,10 +138,8 @@
   # Setup Steam
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # Setup gamescope
@@ -175,16 +182,17 @@
     mgba
     minetest
     nil
+    nixfmt-rfc-style
     nix-tree
     nixd
     nordic
     obs-studio
     okteta
     onlyoffice-bin
-    prismlauncher
-    pokemmo-installer
     papirus-icon-theme
     piper-tts
+    pokemmo-installer
+    prismlauncher
     protonplus
     protontricks
     protonvpn-gui
@@ -210,7 +218,7 @@
 
   # enable gamemode
   programs.gamemode.enable = true;
-  
+
   #setup nh
   programs.nh = {
     enable = true;
@@ -221,21 +229,25 @@
 
   # dynamic link home apps
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs;
-    [
-      # Add any missing dynamic libraries for unpackaged programs
-      # here, NOT in environment.systemPackages
-    ];
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
-  # Enable home manger 
+  # Enable home manger
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = { "jacob" = import ./home.nix; };
+    users = {
+      "jacob" = import ./home.nix;
+    };
   };
 
   # setup shells
   programs.fish.enable = true;
-  environment.shells = with pkgs; [ fish bash ];
+  environment.shells = with pkgs; [
+    fish
+    bash
+  ];
   users.defaultUserShell = pkgs.bash;
   programs.bash = {
     interactiveShellInit = ''
@@ -262,7 +274,7 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.                                         
+  # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
@@ -280,4 +292,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-

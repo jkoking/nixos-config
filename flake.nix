@@ -11,17 +11,24 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-    nixosConfigurations.framework-16 = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/framework-16/configuration.nix
-        ./modules/nixos/kde.nix
-        inputs.home-manager.nixosModules.default
-        nixos-hardware.nixosModules.framework-16-7040-amd
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+      ...
+    }@inputs:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+      nixosConfigurations.framework-16 = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/framework-16/configuration.nix
+          ./modules/nixos/kde.nix
+          inputs.home-manager.nixosModules.default
+          nixos-hardware.nixosModules.framework-16-7040-amd
 
-      ];
+        ];
+      };
     };
-  };
 }
