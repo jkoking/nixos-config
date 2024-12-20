@@ -65,7 +65,7 @@
           "invert_powerline": true,
           "powerline_symbol": "\ue0b2",
           "style": "powerline",
-          "template": " 🥟 {{ .Full }} ",
+          "template": "\ue76f {{ .Full }} ",
           "type": "bun"
         },
         {
@@ -77,7 +77,7 @@
             "display_default": false
           },
           "style": "powerline",
-          "template": "  {{ .Full }} ",
+          "template": "\ue7a8 {{ .Full }} ",
           "type": "rust"
         },
         {
