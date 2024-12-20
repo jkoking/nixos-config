@@ -204,7 +204,6 @@
     speechd
     speedtest-cli
     spotify
-    starship
     synology-drive-client
     trashy
     tree
