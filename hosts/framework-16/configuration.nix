@@ -169,6 +169,7 @@
     easyeffects
     espeak
     fastfetch
+    fd
     floorp
     freecad
     gimp
