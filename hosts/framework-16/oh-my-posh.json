@@ -118,7 +118,7 @@
           "invert_powerline": true,
           "style": "diamond",
           "template": "{{ .UserName }}<#000000>@</><#e06c75>{{ .HostName }}</>  ",
-          "trailing_diamond": "\ue0b0\u2500\u256e",
+          "trailing_diamond": "█▓▒░",
           "type": "session"
         }
       ],
