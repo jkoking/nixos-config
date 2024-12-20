@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -227,11 +227,11 @@
   };
 
   # dynamic link home apps
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
-  ];
+  # ];
 
   # setup shells
   programs.fish.enable = true;
