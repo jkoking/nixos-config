@@ -8,18 +8,7 @@
         {
           "background": "#fbfbfb",
           "foreground": "#0077c2",
-          "leading_diamond": "\ue0b6",
-          "properties": {
-            "arch": "\uf303",
-            "debian": "\uf306",
-            "fedora": "\uf30a",
-            "linux": "\uf17c",
-            "macos": "\uf179",
-            "manjaro": "\uf312",
-            "opensuse": "\uf314",
-            "ubuntu": "\uf31b",
-            "windows": "\uf17a"
-          },
+          "leading_diamond": "░▒▓█",
           "style": "diamond",
           "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "type": "os"
@@ -71,32 +60,65 @@
     {
       "segments": [
         {
+          "background": "#FEAC19",
           "foreground": "#ffffff",
-          "properties": {
-            "always_enabled": true
-          },
-          "style": "plain",
-          "template": " {{ if gt .Code 0 }}\udb80\udc30{{ else }}\uf4a7{{ end }} ",
-          "type": "status"
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
+          "style": "powerline",
+          "template": " 🥟 {{ .Full }} ",
+          "type": "bun"
         },
         {
           "foreground": "#ffffff",
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
           "properties": {
-            "always_enabled": true
+            "display_default": false
           },
-          "style": "plain",
-          "template": "{{ .FormattedMs }} ",
+          "style": "powerline",
+          "template": "  {{ .Full }} ",
+          "type": "rust"
+        },
+        {
+          "background": "#ffff66",
+          "foreground": "#111111",
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
+          "style": "powerline",
+          "template": " \uf0ad ",
+          "type": "root"
+        },
+        {
+          "background": "#c4a000",
+          "foreground": "#000000",
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
+          "style": "powerline",
+          "template": " {{ .FormattedMs }} \uf252 ",
           "type": "executiontime"
         },
         {
-          "background": "#fbfbfb",
-          "foreground": "#0077c2",
-          "powerline_symbol": "\ue0b0",
+          "background": "#000000",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#cc2222{{ end }}"
+          ],
+          "foreground": "#d3d7cf",
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
           "properties": {
-            "display_host": true
+            "always_enabled": true
           },
           "style": "powerline",
-          "template": "{{ .UserName }}<#000000>@</><#e06c75>{{ .HostName }}</> ",
+          "template": " {{ if gt .Code 0 }}{{ reason .Code }}{{ else }}\uf42e{{ end }} ",
+          "type": "status"
+        },
+        {
+          "background": "#d3d7cf",
+          "foreground": "#000000",
+          "invert_powerline": true,
+          "style": "diamond",
+          "template": "{{ .UserName }}<#000000>@</><#e06c75>{{ .HostName }}</>  ",
+          "trailing_diamond": "\ue0b0\u2500\u256e",
           "type": "session"
         }
       ],
