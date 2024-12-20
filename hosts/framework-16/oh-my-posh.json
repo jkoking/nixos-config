@@ -86,7 +86,7 @@
           "invert_powerline": true,
           "powerline_symbol": "\ue0b2",
           "style": "powerline",
-          "template": " {{ .FormattedMs }} \uf252 ",
+          "template": " {{ .FormattedMs }} \uf520 ",
           "type": "executiontime"
         },
         {
