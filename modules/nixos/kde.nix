@@ -12,6 +12,7 @@
     dragon
     elisa
     kcalc
+    kcharselect
     kdenlive
     partitionmanager
     plasma-integration
