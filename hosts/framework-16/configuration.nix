@@ -192,7 +192,9 @@
     papirus-icon-theme
     piper-tts
     pokemmo-installer
-    prismlauncher
+    (prismlauncher.override {
+      additionalPrograms = [ ffmpeg ];
+    })
     protonplus
     protontricks
     protonvpn-gui
@@ -229,8 +231,8 @@
   # dynamic link home apps
   # programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
+  # Add any missing dynamic libraries for unpackaged programs
+  # here, NOT in environment.systemPackages
   # ];
 
   # setup shells
