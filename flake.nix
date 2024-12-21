@@ -19,9 +19,14 @@
     {
       nixpkgs,
       nixos-hardware,
+      home-manager,
       plasma-manager,
       ...
     }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
       nixosConfigurations.framework-16 = nixpkgs.lib.nixosSystem {
         modules = [
@@ -30,11 +35,12 @@
           nixos-hardware.nixosModules.framework-16-7040-amd
         ];
       };
-      home-manager.nixosModules.home-manager = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
-        home-manager.users."jacob" = import ./hosts/framework-16/home.nix;
+      homeConfigurations.jacob = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          plasma-manager.homeManagerModules.plasma-manager
+          ./hosts/framework-16/home.nix
+          ];
       };
     };
 }
