@@ -48,7 +48,7 @@
   #  /etc/profiles/per-user/jacob/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "code";
+    EDITOR = "nano";
   };
 
   # Let Home Manager install and manage itself.
