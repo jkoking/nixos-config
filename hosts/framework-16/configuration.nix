@@ -183,6 +183,7 @@
     minetest
     nil
     nixfmt-rfc-style
+    nix-index
     nix-tree
     nixd
     nordic
@@ -193,6 +194,24 @@
     piper-tts
     pokemmo-installer
     (prismlauncher.override {
+      additionalLibs = [
+        at-spi2-atk
+        cairo.out
+        cups.lib
+        dbus.lib
+        glib
+        libdrm
+        libxkbcommon
+        mesa
+        nspr
+        nss
+        pango
+        xorg_sys_opengl
+        xorg.libxcb.out
+        xorg.libXcomposite
+        xorg.libXdamage
+        xorg.libXfixes.out
+      ];
       additionalPrograms = [ ffmpeg ];
     })
     protonplus
@@ -229,11 +248,12 @@
   };
 
   # dynamic link home apps
-  # programs.nix-ld.enable = true;
-  # programs.nix-ld.libraries = with pkgs; [
-  # Add any missing dynamic libraries for unpackaged programs
-  # here, NOT in environment.systemPackages
-  # ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+    libcef
+  ];
 
   # setup shells
   programs.fish.enable = true;
