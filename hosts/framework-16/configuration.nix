@@ -185,6 +185,7 @@
     nixfmt-rfc-style
     nix-index
     nix-tree
+    nix-index
     nixd
     nordic
     obs-studio
