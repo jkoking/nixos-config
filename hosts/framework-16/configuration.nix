@@ -187,7 +187,6 @@
     nix-tree
     nix-index
     nixd
-    nordic
     obs-studio
     okteta
     onlyoffice-bin

@@ -28,6 +28,7 @@
   # environment.
   home.packages = [
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    pkgs.nordic
     pkgs.oh-my-posh
   ];
 
