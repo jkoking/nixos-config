@@ -21,6 +21,9 @@
   # Allow unfree package
   nixpkgs.config.allowUnfree = true;
 
+  # enable fonts
+  fonts.fontconfig.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
