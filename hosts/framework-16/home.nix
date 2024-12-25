@@ -28,6 +28,7 @@
   # environment.
   home.packages = [
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nordic
     pkgs.oh-my-posh
   ];
 
