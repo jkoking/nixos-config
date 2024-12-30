@@ -13,6 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+      ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs =
@@ -21,6 +24,7 @@
       nixos-hardware,
       home-manager,
       plasma-manager,
+      ghostty,
       ...
     }:
     let
@@ -37,9 +41,11 @@
       };
       homeConfigurations.jacob = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+          extraSpecialArgs = { inherit ghostty; };
         modules = [
           plasma-manager.homeManagerModules.plasma-manager
           ./hosts/framework-16/home.nix
+          ./modules/home-manager/ghostty.nix
           ];
       };
     };
