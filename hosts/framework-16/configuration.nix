@@ -71,7 +71,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
- # services.printing.drivers = [ pkgs.hplipWithPlugin ];
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
