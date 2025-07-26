@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -128,7 +128,7 @@
       };
     };
   };
-  boot.extraModprobeConfig = "options kvm_amd nested=1";
+  boot.extraModprobeConfig = "options kvm_amd nested=1 vfio-pci ids=1002:7480,1002:ab30";
 
   # Allow unfree package
   nixpkgs.config.allowUnfree = true;
@@ -177,6 +177,7 @@
     handbrake
     home-manager
     jetbrains.idea-community-bin
+    looking-glass-client
     (lutris.override { extraPkgs = pkgs: [ pkgs.adwaita-icon-theme ]; })
     makemkv
     mgba
@@ -191,6 +192,7 @@
     okteta
     onlyoffice-bin
     papirus-icon-theme
+    pciutils
     piper-tts
     pokemmo-installer
     (prismlauncher.override {
@@ -235,6 +237,11 @@
     wine-staging
     xemu
   ];
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 jacob qemu-libvirtd -"
+  ];
+
+
 
   # enable gamemode
   programs.gamemode.enable = true;
@@ -271,6 +278,61 @@
       fi
     '';
   };
+
+  #pt
+
+
+  boot = {
+    extraModulePackages = with config.boot.kernelPackages; [ kvmfr ];
+    initrd = {
+      availableKernelModules = [
+        "amdgpu"
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "usbhid"
+        "usb_storage"
+        "uas"
+        "sd_mod"
+        "pci_stub"
+        "vfio"
+        "vfio-pci"
+        "vfio_iommu_type1"
+      ];
+      kernelModules = [
+        "vfio"
+        "vfio-pci"
+        # order matters here, the vfio have to come before the amdgpu
+        # or else the gpu will grab the pci device before it can be
+        # set for vfio-pci passthru
+        "amdgpu"
+      ];
+      preDeviceCommands = ''
+        DEVS="0000:03:00.0 0000:03:00.1"
+        for DEV in $DEVS; do
+          echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+        done
+        modprobe -i vfio-pci
+      '';
+    };
+    kernelModules = [
+      "kvm-amd"
+      "pci_stub"
+      "vfio_pci"
+      "vfio"
+      "vfio_iommu_type1"
+      "kvmfr"
+    ];
+    kernelParams = [
+      "iommu=pt"
+      # "pcie_aspm=off"
+      "amd_iommu=on"
+      "vfio-pci.ids=1002:7480,1002:ab30"
+      "pci-stub.ids=1002:7480,1002:ab30"
+      "mem_sleep_default=deep"
+    ];
+  };
+
 
   # Limit journal size
   services.journald.extraConfig = ''
