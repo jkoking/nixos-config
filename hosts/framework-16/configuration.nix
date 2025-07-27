@@ -154,7 +154,6 @@
   environment.systemPackages = with pkgs; [
     _86Box
     appimage-run
-    audacity
     bitwarden-desktop
     bleachbit
     bottles
