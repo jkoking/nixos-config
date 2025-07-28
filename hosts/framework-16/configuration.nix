@@ -232,7 +232,7 @@
     trashy
     tree
     virt-manager
-    vscodium
+    vscode
     vulkan-tools
     wget
     wine-staging
