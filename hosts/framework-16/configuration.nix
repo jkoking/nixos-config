@@ -168,6 +168,7 @@
     dolphin-emu
     easyeffects
     espeak
+    exfat
     fastfetch
     fd
     floorp
